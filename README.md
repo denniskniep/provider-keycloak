@@ -24,6 +24,10 @@ spec:
 
 
 ## Developing
+Checkout git submodules:
+```console
+git submodule update --init --recursive
+```
 
 Run code-generation pipeline:
 ```console

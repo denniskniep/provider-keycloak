@@ -15,7 +15,9 @@ spec:
     identityProviderAlias: my-idp
     identityProviderMapper: '%s-user-attribute-idp-mapper'
     name: email-attribute-importer
-    realm: ${keycloak_realm.realm.id}
+    realmSelector:
+      matchLabels:
+        testing.upbound.io/example-name: realm
 
 ---
 

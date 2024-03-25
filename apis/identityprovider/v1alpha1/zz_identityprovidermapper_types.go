@@ -37,7 +37,16 @@ type IdentityProviderMapperInitParameters struct {
 
 	// The name of the realm.
 	// Realm Name
+	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-keycloak/apis/realm/v1alpha1.Realm
 	Realm *string `json:"realm,omitempty" tf:"realm,omitempty"`
+
+	// Reference to a Realm in realm to populate realm.
+	// +kubebuilder:validation:Optional
+	RealmRef *v1.Reference `json:"realmRef,omitempty" tf:"-"`
+
+	// Selector for a Realm in realm to populate realm.
+	// +kubebuilder:validation:Optional
+	RealmSelector *v1.Selector `json:"realmSelector,omitempty" tf:"-"`
 }
 
 type IdentityProviderMapperObservation struct {
@@ -89,8 +98,17 @@ type IdentityProviderMapperParameters struct {
 
 	// The name of the realm.
 	// Realm Name
+	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-keycloak/apis/realm/v1alpha1.Realm
 	// +kubebuilder:validation:Optional
 	Realm *string `json:"realm,omitempty" tf:"realm,omitempty"`
+
+	// Reference to a Realm in realm to populate realm.
+	// +kubebuilder:validation:Optional
+	RealmRef *v1.Reference `json:"realmRef,omitempty" tf:"-"`
+
+	// Selector for a Realm in realm to populate realm.
+	// +kubebuilder:validation:Optional
+	RealmSelector *v1.Selector `json:"realmSelector,omitempty" tf:"-"`
 }
 
 // IdentityProviderMapperSpec defines the desired state of IdentityProviderMapper
@@ -132,7 +150,6 @@ type IdentityProviderMapper struct {
 	// +kubebuilder:validation:XValidation:rule="!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.identityProviderAlias) || (has(self.initProvider) && has(self.initProvider.identityProviderAlias))",message="spec.forProvider.identityProviderAlias is a required parameter"
 	// +kubebuilder:validation:XValidation:rule="!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.identityProviderMapper) || (has(self.initProvider) && has(self.initProvider.identityProviderMapper))",message="spec.forProvider.identityProviderMapper is a required parameter"
 	// +kubebuilder:validation:XValidation:rule="!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.name) || (has(self.initProvider) && has(self.initProvider.name))",message="spec.forProvider.name is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.realm) || (has(self.initProvider) && has(self.initProvider.realm))",message="spec.forProvider.realm is a required parameter"
 	Spec   IdentityProviderMapperSpec   `json:"spec"`
 	Status IdentityProviderMapperStatus `json:"status,omitempty"`
 }

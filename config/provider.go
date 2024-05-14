@@ -14,6 +14,7 @@ import (
 	"github.com/crossplane-contrib/provider-keycloak/config/common"
 	"github.com/crossplane-contrib/provider-keycloak/config/defaults"
 	"github.com/crossplane-contrib/provider-keycloak/config/group"
+	"github.com/crossplane-contrib/provider-keycloak/config/identityprovider"
 	"github.com/crossplane-contrib/provider-keycloak/config/ldapuserfederation"
 	"github.com/crossplane-contrib/provider-keycloak/config/mapper"
 	"github.com/crossplane-contrib/provider-keycloak/config/oidc"
@@ -22,6 +23,7 @@ import (
 	"github.com/crossplane-contrib/provider-keycloak/config/realm"
 	"github.com/crossplane-contrib/provider-keycloak/config/role"
 	"github.com/crossplane-contrib/provider-keycloak/config/saml"
+	"github.com/crossplane-contrib/provider-keycloak/config/samlclient"
 	"github.com/crossplane-contrib/provider-keycloak/config/user"
 )
 
@@ -60,6 +62,8 @@ func GetProvider() *ujconfig.Provider {
 		defaults.Configure,
 		oidc.Configure,
 		saml.Configure,
+		samlclient.Configure,
+		identityprovider.Configure,
 		ldapuserfederation.Configure,
 	} {
 		configure(pc)

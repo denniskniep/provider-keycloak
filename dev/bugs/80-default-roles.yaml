@@ -1,0 +1,106 @@
+---
+apiVersion: realm.keycloak.crossplane.io/v1alpha1
+kind: Realm
+metadata:
+  name: my-realm
+spec:
+  forProvider:
+    enabled: true
+    realm: my-realm
+  providerConfigRef:
+    name: keycloak-provider-config
+---
+apiVersion: openidclient.keycloak.crossplane.io/v1alpha1
+kind: Client
+metadata:
+  name: test
+spec:
+  forProvider:
+    realmIdRef:
+      name: "my-realm"
+    accessType: "CONFIDENTIAL"
+    clientId: "test"
+    serviceAccountsEnabled: false
+  providerConfigRef:
+    name: "keycloak-provider-config"
+---
+apiVersion: role.keycloak.crossplane.io/v1alpha1
+kind: Role
+metadata:
+  name: my-realm-role
+spec:
+  forProvider:
+    description: My Realm Role
+    name: my-realm-role
+    realmIdRef:
+      name: my-realm
+  providerConfigRef:
+    name: keycloak-provider-config
+---
+apiVersion: role.keycloak.crossplane.io/v1alpha1
+kind: Role
+metadata:
+  name: my-client-role
+spec:
+  forProvider:
+    description: My Client Role
+    name: my-client-role
+    realmIdRef:
+      name: my-realm
+    clientIdRef:
+      name: test
+  providerConfigRef:
+    name: keycloak-provider-config
+---
+apiVersion: defaults.keycloak.crossplane.io/v1alpha1
+kind: Roles
+metadata:
+  name: default-roles-my-realm
+spec:
+  deletionPolicy: Orphan
+  #managementPolicies: ["Observe"]
+  forProvider:
+    defaultRolesRefs:
+    - name: my-realm-role
+    - name: my-client-role
+    defaultRoles:
+    - offline_access
+    - uma_authorization
+    realmIdRef:
+      name: my-realm
+  providerConfigRef:
+    name: keycloak-provider-config
+--- 
+
+apiVersion: defaults.keycloak.crossplane.io/v1alpha1
+kind: DefaultGroups
+metadata:
+  annotations:
+    meta.upbound.io/example-id: defaults/v1alpha1/defaultgroups
+  labels:
+    testing.upbound.io/example-name: default
+  name: default
+spec:
+  forProvider:
+    groupIdsRefs:
+    - name: group
+    realmIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: realm
+
+---
+
+apiVersion: group.keycloak.crossplane.io/v1alpha1
+kind: Group
+metadata:
+  annotations:
+    meta.upbound.io/example-id: defaults/v1alpha1/defaultgroups
+  labels:
+    testing.upbound.io/example-name: group
+  name: group
+spec:
+  forProvider:
+    name: my-group
+    realmIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: realm

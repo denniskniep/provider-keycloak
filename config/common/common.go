@@ -39,6 +39,7 @@ func AuthenticationFlowAliasExtractor() reference.ExtractValueFn {
 			// todo(hasan): should we log this error?
 			return ""
 		}
+		// Caution, this is case-sensitive
 		r, err := paved.GetString("status.atProvider.alias")
 		if err != nil {
 			// todo(hasan): should we log this error?

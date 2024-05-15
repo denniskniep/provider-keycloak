@@ -53,5 +53,9 @@ func Configure(p *config.Provider) {
 		r.References["realm_id"] = config.Reference{
 			Type: "github.com/crossplane-contrib/provider-keycloak/apis/realm/v1alpha1.Realm",
 		}
+		r.References["browser_flow"] = config.Reference{
+			Type:      "github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow",
+			Extractor: common.PathAuthenticationFlowAliasExtractor,
+		}
 	})
 }

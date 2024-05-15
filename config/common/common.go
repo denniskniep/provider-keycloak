@@ -12,7 +12,8 @@ const (
 
 	// PathServiceAccountRoleIDExtractor is the golang path to ARNExtractor function
 	// in this package.
-	PathServiceAccountRoleIDExtractor = SelfPackagePath + ".ServiceAccountRoleIDExtractor()"
+	PathServiceAccountRoleIDExtractor    = SelfPackagePath + ".ServiceAccountRoleIDExtractor()"
+	PathAuthenticationFlowAliasExtractor = SelfPackagePath + ".AuthenticationFlowAliasExtractor()"
 )
 
 func ServiceAccountRoleIDExtractor() reference.ExtractValueFn {
@@ -23,6 +24,22 @@ func ServiceAccountRoleIDExtractor() reference.ExtractValueFn {
 			return ""
 		}
 		r, err := paved.GetString("status.atProvider.serviceAccountUserId")
+		if err != nil {
+			// todo(hasan): should we log this error?
+			return ""
+		}
+		return r
+	}
+}
+
+func AuthenticationFlowAliasExtractor() reference.ExtractValueFn {
+	return func(mg xpresource.Managed) string {
+		paved, err := fieldpath.PaveObject(mg)
+		if err != nil {
+			// todo(hasan): should we log this error?
+			return ""
+		}
+		r, err := paved.GetString("status.atProvider.Alias")
 		if err != nil {
 			// todo(hasan): should we log this error?
 			return ""

@@ -1,6 +1,9 @@
 package authentication
 
-import "github.com/crossplane/upjet/pkg/config"
+import (
+	"github.com/crossplane-contrib/provider-keycloak/config/common"
+	"github.com/crossplane/upjet/pkg/config"
+)
 
 const (
 	// Group is the short group for this provider.
@@ -21,7 +24,8 @@ func Configure(p *config.Provider) {
 			Type: "github.com/crossplane-contrib/provider-keycloak/apis/realm/v1alpha1.Realm",
 		}
 		r.References["parent_flow_alias"] = config.Reference{
-			Type: "github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow",
+			Type:      "github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow",
+			Extractor: common.PathAuthenticationFlowAliasExtractor,
 		}
 	})
 	p.AddResourceConfigurator("keycloak_authentication_execution", func(r *config.Resource) {
@@ -30,7 +34,8 @@ func Configure(p *config.Provider) {
 			Type: "github.com/crossplane-contrib/provider-keycloak/apis/realm/v1alpha1.Realm",
 		}
 		r.References["parent_flow_alias"] = config.Reference{
-			Type: "github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow",
+			Type:      "github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow",
+			Extractor: common.PathAuthenticationFlowAliasExtractor,
 		}
 	})
 	p.AddResourceConfigurator("keycloak_authentication_execution_config", func(r *config.Resource) {
@@ -39,7 +44,8 @@ func Configure(p *config.Provider) {
 			Type: "github.com/crossplane-contrib/provider-keycloak/apis/realm/v1alpha1.Realm",
 		}
 		r.References["parent_flow_alias"] = config.Reference{
-			Type: "github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow",
+			Type:      "github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow",
+			Extractor: common.PathAuthenticationFlowAliasExtractor,
 		}
 	})
 	p.AddResourceConfigurator("keycloak_authentication_bindings", func(r *config.Resource) {

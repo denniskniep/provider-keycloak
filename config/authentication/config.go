@@ -47,6 +47,9 @@ func Configure(p *config.Provider) {
 			Type:      "github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow",
 			Extractor: common.PathAuthenticationFlowAliasExtractor,
 		}
+		r.References["execution_id"] = config.Reference{
+			Type: "github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Execution",
+		}
 	})
 	p.AddResourceConfigurator("keycloak_authentication_bindings", func(r *config.Resource) {
 		r.ShortGroup = Group

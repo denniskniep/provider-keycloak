@@ -60,5 +60,25 @@ func Configure(p *config.Provider) {
 			Type:      "github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow",
 			Extractor: common.PathAuthenticationFlowAliasExtractor,
 		}
+		r.References["registration_flow"] = config.Reference{
+			Type:      "github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow",
+			Extractor: common.PathAuthenticationFlowAliasExtractor,
+		}
+		r.References["direct_grant_flow"] = config.Reference{
+			Type:      "github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow",
+			Extractor: common.PathAuthenticationFlowAliasExtractor,
+		}
+		r.References["reset_credentials_flow"] = config.Reference{
+			Type:      "github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow",
+			Extractor: common.PathAuthenticationFlowAliasExtractor,
+		}
+		r.References["client_authentication_flow"] = config.Reference{
+			Type:      "github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow",
+			Extractor: common.PathAuthenticationFlowAliasExtractor,
+		}
+		r.References["docker_authentication_flow"] = config.Reference{
+			Type:      "github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow",
+			Extractor: common.PathAuthenticationFlowAliasExtractor,
+		}
 	})
 }

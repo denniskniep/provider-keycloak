@@ -12,10 +12,13 @@ const (
 
 	// PathServiceAccountRoleIDExtractor is the golang path to ARNExtractor function
 	// in this package.
-	PathServiceAccountRoleIDExtractor    = SelfPackagePath + ".ServiceAccountRoleIDExtractor()"
+	PathServiceAccountRoleIDExtractor = SelfPackagePath + ".ServiceAccountRoleIDExtractor()"
+	// PathAuthenticationFlowAliasExtractor is the golang path to ARNExtractor function
+	// in this package.
 	PathAuthenticationFlowAliasExtractor = SelfPackagePath + ".AuthenticationFlowAliasExtractor()"
 )
 
+// ServiceAccountRoleIDExtractor extract UserId from ServiceAccount Ref
 func ServiceAccountRoleIDExtractor() reference.ExtractValueFn {
 	return func(mg xpresource.Managed) string {
 		paved, err := fieldpath.PaveObject(mg)
@@ -32,6 +35,7 @@ func ServiceAccountRoleIDExtractor() reference.ExtractValueFn {
 	}
 }
 
+// AuthenticationFlowAliasExtractor extract Alias from AuthenticationFlow Ref
 func AuthenticationFlowAliasExtractor() reference.ExtractValueFn {
 	return func(mg xpresource.Managed) string {
 		paved, err := fieldpath.PaveObject(mg)

@@ -9,6 +9,11 @@ import (
 
 	"github.com/crossplane/upjet/pkg/controller"
 
+	bindings "github.com/crossplane-contrib/provider-keycloak/internal/controller/authenticationflow/bindings"
+	execution "github.com/crossplane-contrib/provider-keycloak/internal/controller/authenticationflow/execution"
+	executionconfig "github.com/crossplane-contrib/provider-keycloak/internal/controller/authenticationflow/executionconfig"
+	flow "github.com/crossplane-contrib/provider-keycloak/internal/controller/authenticationflow/flow"
+	subflow "github.com/crossplane-contrib/provider-keycloak/internal/controller/authenticationflow/subflow"
 	protocolmapper "github.com/crossplane-contrib/provider-keycloak/internal/controller/client/protocolmapper"
 	rolemapper "github.com/crossplane-contrib/provider-keycloak/internal/controller/client/rolemapper"
 	defaultgroups "github.com/crossplane-contrib/provider-keycloak/internal/controller/defaults/defaultgroups"
@@ -18,6 +23,8 @@ import (
 	permissions "github.com/crossplane-contrib/provider-keycloak/internal/controller/group/permissions"
 	rolesgroup "github.com/crossplane-contrib/provider-keycloak/internal/controller/group/roles"
 	identityprovidermapper "github.com/crossplane-contrib/provider-keycloak/internal/controller/identityprovider/identityprovidermapper"
+	userattributemapper "github.com/crossplane-contrib/provider-keycloak/internal/controller/ldapuserfederation/userattributemapper"
+	userfederation "github.com/crossplane-contrib/provider-keycloak/internal/controller/ldapuserfederation/userfederation"
 	identityprovider "github.com/crossplane-contrib/provider-keycloak/internal/controller/oidc/identityprovider"
 	client "github.com/crossplane-contrib/provider-keycloak/internal/controller/openidclient/client"
 	clientclientpolicy "github.com/crossplane-contrib/provider-keycloak/internal/controller/openidclient/clientclientpolicy"
@@ -48,6 +55,11 @@ import (
 // the supplied manager.
 func Setup(mgr ctrl.Manager, o controller.Options) error {
 	for _, setup := range []func(ctrl.Manager, controller.Options) error{
+		bindings.Setup,
+		execution.Setup,
+		executionconfig.Setup,
+		flow.Setup,
+		subflow.Setup,
 		protocolmapper.Setup,
 		rolemapper.Setup,
 		defaultgroups.Setup,
@@ -57,6 +69,8 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		permissions.Setup,
 		rolesgroup.Setup,
 		identityprovidermapper.Setup,
+		userattributemapper.Setup,
+		userfederation.Setup,
 		identityprovider.Setup,
 		client.Setup,
 		clientclientpolicy.Setup,

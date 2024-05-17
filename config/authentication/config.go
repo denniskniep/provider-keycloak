@@ -20,12 +20,14 @@ func Configure(p *config.Provider) {
 	})
 	p.AddResourceConfigurator("keycloak_authentication_subflow", func(r *config.Resource) {
 		r.ShortGroup = Group
-		r.References["realm_id"] = config.Reference{
+		/*r.References["realm_id"] = config.Reference{
 			Type: "github.com/crossplane-contrib/provider-keycloak/apis/realm/v1alpha1.Realm",
-		}
+		}*/
 		r.References["parent_flow_alias"] = config.Reference{
-			Type:      "github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow",
-			Extractor: common.PathAuthenticationFlowAliasExtractor,
+			Type:              "github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow",
+			Extractor:         common.PathAuthenticationFlowAliasExtractor,
+			RefFieldName:      "ParentFlowAliasRef",
+			SelectorFieldName: "ParentFlowAliasSelector",
 		}
 	})
 	p.AddResourceConfigurator("keycloak_authentication_execution", func(r *config.Resource) {

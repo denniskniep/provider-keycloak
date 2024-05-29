@@ -23,8 +23,17 @@ import (
 	permissions "github.com/crossplane-contrib/provider-keycloak/internal/controller/group/permissions"
 	rolesgroup "github.com/crossplane-contrib/provider-keycloak/internal/controller/group/roles"
 	identityprovidermapper "github.com/crossplane-contrib/provider-keycloak/internal/controller/identityprovider/identityprovidermapper"
-	userattributemapper "github.com/crossplane-contrib/provider-keycloak/internal/controller/ldapuserfederation/userattributemapper"
-	userfederation "github.com/crossplane-contrib/provider-keycloak/internal/controller/ldapuserfederation/userfederation"
+	custommapper "github.com/crossplane-contrib/provider-keycloak/internal/controller/ldap/custommapper"
+	fullnamemapper "github.com/crossplane-contrib/provider-keycloak/internal/controller/ldap/fullnamemapper"
+	groupmapper "github.com/crossplane-contrib/provider-keycloak/internal/controller/ldap/groupmapper"
+	hardcodedattributemapper "github.com/crossplane-contrib/provider-keycloak/internal/controller/ldap/hardcodedattributemapper"
+	hardcodedgroupmapper "github.com/crossplane-contrib/provider-keycloak/internal/controller/ldap/hardcodedgroupmapper"
+	hardcodedrolemapper "github.com/crossplane-contrib/provider-keycloak/internal/controller/ldap/hardcodedrolemapper"
+	msadldsuseraccountcontrolmapper "github.com/crossplane-contrib/provider-keycloak/internal/controller/ldap/msadldsuseraccountcontrolmapper"
+	msaduseraccountcontrolmapper "github.com/crossplane-contrib/provider-keycloak/internal/controller/ldap/msaduseraccountcontrolmapper"
+	rolemapperldap "github.com/crossplane-contrib/provider-keycloak/internal/controller/ldap/rolemapper"
+	userattributemapper "github.com/crossplane-contrib/provider-keycloak/internal/controller/ldap/userattributemapper"
+	userfederation "github.com/crossplane-contrib/provider-keycloak/internal/controller/ldap/userfederation"
 	identityprovider "github.com/crossplane-contrib/provider-keycloak/internal/controller/oidc/identityprovider"
 	client "github.com/crossplane-contrib/provider-keycloak/internal/controller/openidclient/client"
 	clientclientpolicy "github.com/crossplane-contrib/provider-keycloak/internal/controller/openidclient/clientclientpolicy"
@@ -69,6 +78,15 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		permissions.Setup,
 		rolesgroup.Setup,
 		identityprovidermapper.Setup,
+		custommapper.Setup,
+		fullnamemapper.Setup,
+		groupmapper.Setup,
+		hardcodedattributemapper.Setup,
+		hardcodedgroupmapper.Setup,
+		hardcodedrolemapper.Setup,
+		msadldsuseraccountcontrolmapper.Setup,
+		msaduseraccountcontrolmapper.Setup,
+		rolemapperldap.Setup,
 		userattributemapper.Setup,
 		userfederation.Setup,
 		identityprovider.Setup,

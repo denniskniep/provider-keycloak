@@ -19,6 +19,8 @@ type BindingsInitParameters struct {
 	// Which flow should be used for BrowserFlow
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-keycloak/config/common.AuthenticationFlowAliasExtractor()
+	// +crossplane:generate:reference:refFieldName=BrowserFlowRef
+	// +crossplane:generate:reference:selectorFieldName=BrowserFlowSelector
 	BrowserFlow *string `json:"browserFlow,omitempty" tf:"browser_flow,omitempty"`
 
 	// Reference to a Flow in authenticationflow to populate browserFlow.
@@ -33,6 +35,8 @@ type BindingsInitParameters struct {
 	// Which flow should be used for ClientAuthenticationFlow
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-keycloak/config/common.AuthenticationFlowAliasExtractor()
+	// +crossplane:generate:reference:refFieldName=ClientAuthenticationFlowRef
+	// +crossplane:generate:reference:selectorFieldName=ClientAuthenticationFlowSelector
 	ClientAuthenticationFlow *string `json:"clientAuthenticationFlow,omitempty" tf:"client_authentication_flow,omitempty"`
 
 	// Reference to a Flow in authenticationflow to populate clientAuthenticationFlow.
@@ -47,6 +51,8 @@ type BindingsInitParameters struct {
 	// Which flow should be used for DirectGrantFlow
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-keycloak/config/common.AuthenticationFlowAliasExtractor()
+	// +crossplane:generate:reference:refFieldName=DirectGrantFlowRef
+	// +crossplane:generate:reference:selectorFieldName=DirectGrantFlowSelector
 	DirectGrantFlow *string `json:"directGrantFlow,omitempty" tf:"direct_grant_flow,omitempty"`
 
 	// Reference to a Flow in authenticationflow to populate directGrantFlow.
@@ -61,6 +67,8 @@ type BindingsInitParameters struct {
 	// Which flow should be used for DockerAuthenticationFlow
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-keycloak/config/common.AuthenticationFlowAliasExtractor()
+	// +crossplane:generate:reference:refFieldName=DockerAuthenticationFlowRef
+	// +crossplane:generate:reference:selectorFieldName=DockerAuthenticationFlowSelector
 	DockerAuthenticationFlow *string `json:"dockerAuthenticationFlow,omitempty" tf:"docker_authentication_flow,omitempty"`
 
 	// Reference to a Flow in authenticationflow to populate dockerAuthenticationFlow.
@@ -87,6 +95,8 @@ type BindingsInitParameters struct {
 	// Which flow should be used for RegistrationFlow
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-keycloak/config/common.AuthenticationFlowAliasExtractor()
+	// +crossplane:generate:reference:refFieldName=RegistrationFlowRef
+	// +crossplane:generate:reference:selectorFieldName=RegistrationFlowSelector
 	RegistrationFlow *string `json:"registrationFlow,omitempty" tf:"registration_flow,omitempty"`
 
 	// Reference to a Flow in authenticationflow to populate registrationFlow.
@@ -101,6 +111,8 @@ type BindingsInitParameters struct {
 	// Which flow should be used for ResetCredentialsFlow
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-keycloak/config/common.AuthenticationFlowAliasExtractor()
+	// +crossplane:generate:reference:refFieldName=ResetCredentialsFlowRef
+	// +crossplane:generate:reference:selectorFieldName=ResetCredentialsFlowSelector
 	ResetCredentialsFlow *string `json:"resetCredentialsFlow,omitempty" tf:"reset_credentials_flow,omitempty"`
 
 	// Reference to a Flow in authenticationflow to populate resetCredentialsFlow.
@@ -150,6 +162,8 @@ type BindingsParameters struct {
 	// Which flow should be used for BrowserFlow
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-keycloak/config/common.AuthenticationFlowAliasExtractor()
+	// +crossplane:generate:reference:refFieldName=BrowserFlowRef
+	// +crossplane:generate:reference:selectorFieldName=BrowserFlowSelector
 	// +kubebuilder:validation:Optional
 	BrowserFlow *string `json:"browserFlow,omitempty" tf:"browser_flow,omitempty"`
 
@@ -165,6 +179,8 @@ type BindingsParameters struct {
 	// Which flow should be used for ClientAuthenticationFlow
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-keycloak/config/common.AuthenticationFlowAliasExtractor()
+	// +crossplane:generate:reference:refFieldName=ClientAuthenticationFlowRef
+	// +crossplane:generate:reference:selectorFieldName=ClientAuthenticationFlowSelector
 	// +kubebuilder:validation:Optional
 	ClientAuthenticationFlow *string `json:"clientAuthenticationFlow,omitempty" tf:"client_authentication_flow,omitempty"`
 
@@ -180,6 +196,8 @@ type BindingsParameters struct {
 	// Which flow should be used for DirectGrantFlow
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-keycloak/config/common.AuthenticationFlowAliasExtractor()
+	// +crossplane:generate:reference:refFieldName=DirectGrantFlowRef
+	// +crossplane:generate:reference:selectorFieldName=DirectGrantFlowSelector
 	// +kubebuilder:validation:Optional
 	DirectGrantFlow *string `json:"directGrantFlow,omitempty" tf:"direct_grant_flow,omitempty"`
 
@@ -195,6 +213,8 @@ type BindingsParameters struct {
 	// Which flow should be used for DockerAuthenticationFlow
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-keycloak/config/common.AuthenticationFlowAliasExtractor()
+	// +crossplane:generate:reference:refFieldName=DockerAuthenticationFlowRef
+	// +crossplane:generate:reference:selectorFieldName=DockerAuthenticationFlowSelector
 	// +kubebuilder:validation:Optional
 	DockerAuthenticationFlow *string `json:"dockerAuthenticationFlow,omitempty" tf:"docker_authentication_flow,omitempty"`
 
@@ -223,6 +243,8 @@ type BindingsParameters struct {
 	// Which flow should be used for RegistrationFlow
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-keycloak/config/common.AuthenticationFlowAliasExtractor()
+	// +crossplane:generate:reference:refFieldName=RegistrationFlowRef
+	// +crossplane:generate:reference:selectorFieldName=RegistrationFlowSelector
 	// +kubebuilder:validation:Optional
 	RegistrationFlow *string `json:"registrationFlow,omitempty" tf:"registration_flow,omitempty"`
 
@@ -238,6 +260,8 @@ type BindingsParameters struct {
 	// Which flow should be used for ResetCredentialsFlow
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-keycloak/config/common.AuthenticationFlowAliasExtractor()
+	// +crossplane:generate:reference:refFieldName=ResetCredentialsFlowRef
+	// +crossplane:generate:reference:selectorFieldName=ResetCredentialsFlowSelector
 	// +kubebuilder:validation:Optional
 	ResetCredentialsFlow *string `json:"resetCredentialsFlow,omitempty" tf:"reset_credentials_flow,omitempty"`
 

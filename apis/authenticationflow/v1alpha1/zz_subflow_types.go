@@ -29,6 +29,8 @@ type SubflowInitParameters struct {
 	// The alias for the parent authentication flow.
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-keycloak/config/common.AuthenticationFlowAliasExtractor()
+	// +crossplane:generate:reference:refFieldName=ParentFlowAliasRef
+	// +crossplane:generate:reference:selectorFieldName=ParentFlowAliasSelector
 	ParentFlowAlias *string `json:"parentFlowAlias,omitempty" tf:"parent_flow_alias,omitempty"`
 
 	// Reference to a Flow in authenticationflow to populate parentFlowAlias.
@@ -109,6 +111,8 @@ type SubflowParameters struct {
 	// The alias for the parent authentication flow.
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-keycloak/config/common.AuthenticationFlowAliasExtractor()
+	// +crossplane:generate:reference:refFieldName=ParentFlowAliasRef
+	// +crossplane:generate:reference:selectorFieldName=ParentFlowAliasSelector
 	// +kubebuilder:validation:Optional
 	ParentFlowAlias *string `json:"parentFlowAlias,omitempty" tf:"parent_flow_alias,omitempty"`
 

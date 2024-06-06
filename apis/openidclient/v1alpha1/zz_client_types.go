@@ -205,7 +205,7 @@ type ClientInitParameters struct {
 	// The minimum amount of time in seconds that the client should wait between polling requests to the token endpoint.
 	Oauth2DevicePollingInterval *string `json:"oauth2DevicePollingInterval,omitempty" tf:"oauth2_device_polling_interval,omitempty"`
 
-	// The challenge method to use for Proof Key for Code Exchange. Can be either plain or S256 or set to empty value ``.
+	// The challenge method to use for Proof Key for Code Exchange. Can be either plain or S256 or set to empty value “.
 	PkceCodeChallengeMethod *string `json:"pkceCodeChallengeMethod,omitempty" tf:"pkce_code_challenge_method,omitempty"`
 
 	// The realm this client is attached to.
@@ -354,7 +354,7 @@ type ClientObservation struct {
 	// The minimum amount of time in seconds that the client should wait between polling requests to the token endpoint.
 	Oauth2DevicePollingInterval *string `json:"oauth2DevicePollingInterval,omitempty" tf:"oauth2_device_polling_interval,omitempty"`
 
-	// The challenge method to use for Proof Key for Code Exchange. Can be either plain or S256 or set to empty value ``.
+	// The challenge method to use for Proof Key for Code Exchange. Can be either plain or S256 or set to empty value “.
 	PkceCodeChallengeMethod *string `json:"pkceCodeChallengeMethod,omitempty" tf:"pkce_code_challenge_method,omitempty"`
 
 	// The realm this client is attached to.
@@ -544,7 +544,7 @@ type ClientParameters struct {
 	// +kubebuilder:validation:Optional
 	Oauth2DevicePollingInterval *string `json:"oauth2DevicePollingInterval,omitempty" tf:"oauth2_device_polling_interval,omitempty"`
 
-	// The challenge method to use for Proof Key for Code Exchange. Can be either plain or S256 or set to empty value ``.
+	// The challenge method to use for Proof Key for Code Exchange. Can be either plain or S256 or set to empty value “.
 	// +kubebuilder:validation:Optional
 	PkceCodeChallengeMethod *string `json:"pkceCodeChallengeMethod,omitempty" tf:"pkce_code_challenge_method,omitempty"`
 

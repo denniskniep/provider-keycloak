@@ -57,6 +57,7 @@ import (
 	clientscopesamlclient "github.com/crossplane-contrib/provider-keycloak/internal/controller/samlclient/clientscope"
 	groups "github.com/crossplane-contrib/provider-keycloak/internal/controller/user/groups"
 	permissionsuser "github.com/crossplane-contrib/provider-keycloak/internal/controller/user/permissions"
+	rolesuser "github.com/crossplane-contrib/provider-keycloak/internal/controller/user/roles"
 	user "github.com/crossplane-contrib/provider-keycloak/internal/controller/user/user"
 )
 
@@ -112,6 +113,7 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		clientscopesamlclient.Setup,
 		groups.Setup,
 		permissionsuser.Setup,
+		rolesuser.Setup,
 		user.Setup,
 	} {
 		if err := setup(mgr, o); err != nil {

@@ -77,6 +77,17 @@ spec:
                       by experimenting with the GUI and looking at HTTP requests within
                       the network tab of your browser's development tools.
                     type: string
+                  import:
+                    description: When true, the authentication execution with the
+                      specified authenticator inside the authentication flow with
+                      the specified alias parent_flow_alias is assumed to already
+                      exist, and it will be imported into state instead of being created.
+                      This attribute is useful when dealing with authentication executions
+                      that Keycloak creates automatically during realm creation, such
+                      as browser/identity-provider-redirector and registration/registration-user-creation.
+                      Note, that the execution will not be removed during destruction
+                      if import is true.
+                    type: boolean
                   parentFlowAlias:
                     description: The alias of the flow this execution is attached
                       to.
@@ -258,6 +269,17 @@ spec:
                       by experimenting with the GUI and looking at HTTP requests within
                       the network tab of your browser's development tools.
                     type: string
+                  import:
+                    description: When true, the authentication execution with the
+                      specified authenticator inside the authentication flow with
+                      the specified alias parent_flow_alias is assumed to already
+                      exist, and it will be imported into state instead of being created.
+                      This attribute is useful when dealing with authentication executions
+                      that Keycloak creates automatically during realm creation, such
+                      as browser/identity-provider-redirector and registration/registration-user-creation.
+                      Note, that the execution will not be removed during destruction
+                      if import is true.
+                    type: boolean
                   parentFlowAlias:
                     description: The alias of the flow this execution is attached
                       to.
@@ -605,6 +627,17 @@ spec:
                     type: string
                   id:
                     type: string
+                  import:
+                    description: When true, the authentication execution with the
+                      specified authenticator inside the authentication flow with
+                      the specified alias parent_flow_alias is assumed to already
+                      exist, and it will be imported into state instead of being created.
+                      This attribute is useful when dealing with authentication executions
+                      that Keycloak creates automatically during realm creation, such
+                      as browser/identity-provider-redirector and registration/registration-user-creation.
+                      Note, that the execution will not be removed during destruction
+                      if import is true.
+                    type: boolean
                   parentFlowAlias:
                     description: The alias of the flow this execution is attached
                       to.

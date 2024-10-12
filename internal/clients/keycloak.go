@@ -18,7 +18,7 @@ import (
 
 	"github.com/crossplane-contrib/provider-keycloak/apis/v1beta1"
 	terraformSDK "github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	keycloakProvider "github.com/mrparkers/terraform-provider-keycloak/provider"
+	keycloakProvider "github.com/denniskniep/terraform-provider-keycloak/provider"
 )
 
 const (

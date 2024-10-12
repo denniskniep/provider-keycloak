@@ -78,6 +78,15 @@ spec:
                   description:
                     description: A description for the authentication flow.
                     type: string
+                  import:
+                    description: When true, the authentication flow with the specified
+                      alias is assumed to already exist, and it will be imported into
+                      state instead of being created. This attribute is useful when
+                      dealing with authentication flows that Keycloak creates automatically
+                      during realm creation, such as browser and clients. Note, that
+                      the flow will not be removed during destruction if import is
+                      true.
+                    type: boolean
                   providerId:
                     description: The type of authentication flow to create. Valid
                       choices include basic-flow and client-flow. Defaults to basic-flow.
@@ -179,6 +188,15 @@ spec:
                   description:
                     description: A description for the authentication flow.
                     type: string
+                  import:
+                    description: When true, the authentication flow with the specified
+                      alias is assumed to already exist, and it will be imported into
+                      state instead of being created. This attribute is useful when
+                      dealing with authentication flows that Keycloak creates automatically
+                      during realm creation, such as browser and clients. Note, that
+                      the flow will not be removed during destruction if import is
+                      true.
+                    type: boolean
                   providerId:
                     description: The type of authentication flow to create. Valid
                       choices include basic-flow and client-flow. Defaults to basic-flow.
@@ -446,6 +464,15 @@ spec:
                     type: string
                   id:
                     type: string
+                  import:
+                    description: When true, the authentication flow with the specified
+                      alias is assumed to already exist, and it will be imported into
+                      state instead of being created. This attribute is useful when
+                      dealing with authentication flows that Keycloak creates automatically
+                      during realm creation, such as browser and clients. Note, that
+                      the flow will not be removed during destruction if import is
+                      true.
+                    type: boolean
                   providerId:
                     description: The type of authentication flow to create. Valid
                       choices include basic-flow and client-flow. Defaults to basic-flow.

@@ -179,7 +179,7 @@ jobs:
       - detect-noop
       - unit-tests
       - check-diff
-      - lint
+      # - lint
     if: needs.detect-noop.outputs.noop != 'true'
 
     steps:

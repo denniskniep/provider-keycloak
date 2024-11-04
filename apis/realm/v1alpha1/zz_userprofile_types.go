@@ -230,6 +230,8 @@ type UserProfileInitParameters struct {
 	// Selector for a Realm in realm to populate realmId.
 	// +kubebuilder:validation:Optional
 	RealmIDSelector *v1.Selector `json:"realmIdSelector,omitempty" tf:"-"`
+
+	UnmanagedAttributePolicy *string `json:"unmanagedAttributePolicy,omitempty" tf:"unmanaged_attribute_policy,omitempty"`
 }
 
 type UserProfileObservation struct {
@@ -244,6 +246,8 @@ type UserProfileObservation struct {
 
 	// The ID of the realm the user profile applies to.
 	RealmID *string `json:"realmId,omitempty" tf:"realm_id,omitempty"`
+
+	UnmanagedAttributePolicy *string `json:"unmanagedAttributePolicy,omitempty" tf:"unmanaged_attribute_policy,omitempty"`
 }
 
 type UserProfileParameters struct {
@@ -268,6 +272,9 @@ type UserProfileParameters struct {
 	// Selector for a Realm in realm to populate realmId.
 	// +kubebuilder:validation:Optional
 	RealmIDSelector *v1.Selector `json:"realmIdSelector,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	UnmanagedAttributePolicy *string `json:"unmanagedAttributePolicy,omitempty" tf:"unmanaged_attribute_policy,omitempty"`
 }
 
 type ValidatorInitParameters struct {

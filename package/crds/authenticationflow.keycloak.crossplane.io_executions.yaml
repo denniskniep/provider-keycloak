@@ -168,6 +168,8 @@ spec:
                             type: string
                         type: object
                     type: object
+                  priority:
+                    type: number
                   realmId:
                     description: The realm the authentication execution exists in.
                     type: string
@@ -360,6 +362,8 @@ spec:
                             type: string
                         type: object
                     type: object
+                  priority:
+                    type: number
                   realmId:
                     description: The realm the authentication execution exists in.
                     type: string
@@ -642,6 +646,8 @@ spec:
                     description: The alias of the flow this execution is attached
                       to.
                     type: string
+                  priority:
+                    type: number
                   realmId:
                     description: The realm the authentication execution exists in.
                     type: string

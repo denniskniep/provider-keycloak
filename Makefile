@@ -12,11 +12,11 @@ TERRAFORM_VERSION_VALID := $(shell [ "$(TERRAFORM_VERSION)" = "`printf "$(TERRAF
 
 export TERRAFORM_PROVIDER_SOURCE ?= denniskniep/keycloak
 export TERRAFORM_PROVIDER_REPO ?= https://github.com/denniskniep/terraform-provider-keycloak
-export TERRAFORM_PROVIDER_VERSION ?= 5-pre-1.1.0
+export TERRAFORM_PROVIDER_VERSION ?= 5-pre-2.0.0
 export TERRAFORM_PROVIDER_PLATFORM ?= linux_amd64
 export TERRAFORM_PROVIDER_DOWNLOAD_NAME ?= terraform-provider-keycloak
 export TERRAFORM_PROVIDER_DOWNLOAD_URL_PREFIX ?= ${TERRAFORM_PROVIDER_REPO}/releases/download/v$(TERRAFORM_PROVIDER_VERSION)
-export TERRAFORM_NATIVE_PROVIDER_BINARY ?= terraform-provider-keycloak_v5-pre-1.1.0
+export TERRAFORM_NATIVE_PROVIDER_BINARY ?= terraform-provider-keycloak_v5-pre-2.0.0
 export TERRAFORM_DOCS_PATH ?= docs/resources
 export TERRAFORM_FILE_MIRROR ?= ~/.terraform.d/plugins/registry.terraform.io
 

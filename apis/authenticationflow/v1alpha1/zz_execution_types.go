@@ -36,6 +36,8 @@ type ExecutionInitParameters struct {
 	// +kubebuilder:validation:Optional
 	ParentFlowAliasSelector *v1.Selector `json:"parentFlowAliasSelector,omitempty" tf:"-"`
 
+	Priority *float64 `json:"priority,omitempty" tf:"priority,omitempty"`
+
 	// The realm the authentication execution exists in.
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-keycloak/apis/realm/v1alpha1.Realm
 	RealmID *string `json:"realmId,omitempty" tf:"realm_id,omitempty"`
@@ -64,6 +66,8 @@ type ExecutionObservation struct {
 
 	// The alias of the flow this execution is attached to.
 	ParentFlowAlias *string `json:"parentFlowAlias,omitempty" tf:"parent_flow_alias,omitempty"`
+
+	Priority *float64 `json:"priority,omitempty" tf:"priority,omitempty"`
 
 	// The realm the authentication execution exists in.
 	RealmID *string `json:"realmId,omitempty" tf:"realm_id,omitempty"`
@@ -97,6 +101,9 @@ type ExecutionParameters struct {
 	// Selector for a Flow in authenticationflow to populate parentFlowAlias.
 	// +kubebuilder:validation:Optional
 	ParentFlowAliasSelector *v1.Selector `json:"parentFlowAliasSelector,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	Priority *float64 `json:"priority,omitempty" tf:"priority,omitempty"`
 
 	// The realm the authentication execution exists in.
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-keycloak/apis/realm/v1alpha1.Realm

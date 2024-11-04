@@ -734,6 +734,11 @@ func (in *ExecutionInitParameters) DeepCopyInto(out *ExecutionInitParameters) {
 		*out = new(v1.Selector)
 		(*in).DeepCopyInto(*out)
 	}
+	if in.Priority != nil {
+		in, out := &in.Priority, &out.Priority
+		*out = new(float64)
+		**out = **in
+	}
 	if in.RealmID != nil {
 		in, out := &in.RealmID, &out.RealmID
 		*out = new(string)
@@ -821,6 +826,11 @@ func (in *ExecutionObservation) DeepCopyInto(out *ExecutionObservation) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.Priority != nil {
+		in, out := &in.Priority, &out.Priority
+		*out = new(float64)
+		**out = **in
+	}
 	if in.RealmID != nil {
 		in, out := &in.RealmID, &out.RealmID
 		*out = new(string)
@@ -870,6 +880,11 @@ func (in *ExecutionParameters) DeepCopyInto(out *ExecutionParameters) {
 		in, out := &in.ParentFlowAliasSelector, &out.ParentFlowAliasSelector
 		*out = new(v1.Selector)
 		(*in).DeepCopyInto(*out)
+	}
+	if in.Priority != nil {
+		in, out := &in.Priority, &out.Priority
+		*out = new(float64)
+		**out = **in
 	}
 	if in.RealmID != nil {
 		in, out := &in.RealmID, &out.RealmID

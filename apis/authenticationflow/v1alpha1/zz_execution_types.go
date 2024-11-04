@@ -18,6 +18,9 @@ type ExecutionInitParameters struct {
 	// The name of the authenticator. This can be found by experimenting with the GUI and looking at HTTP requests within the network tab of your browser's development tools.
 	Authenticator *string `json:"authenticator,omitempty" tf:"authenticator,omitempty"`
 
+	// When true, the authentication execution with the specified authenticator inside the authentication flow with the specified alias parent_flow_alias is assumed to already exist, and it will be imported into state instead of being created. This attribute is useful when dealing with authentication executions that Keycloak creates automatically during realm creation, such as browser/identity-provider-redirector and registration/registration-user-creation. Note, that the execution will not be removed during destruction if import is true.
+	Import *bool `json:"import,omitempty" tf:"import,omitempty"`
+
 	// The alias of the flow this execution is attached to.
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-keycloak/config/common.AuthenticationFlowAliasExtractor()
@@ -32,6 +35,8 @@ type ExecutionInitParameters struct {
 	// Selector for a Flow in authenticationflow to populate parentFlowAlias.
 	// +kubebuilder:validation:Optional
 	ParentFlowAliasSelector *v1.Selector `json:"parentFlowAliasSelector,omitempty" tf:"-"`
+
+	Priority *float64 `json:"priority,omitempty" tf:"priority,omitempty"`
 
 	// The realm the authentication execution exists in.
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-keycloak/apis/realm/v1alpha1.Realm
@@ -56,8 +61,13 @@ type ExecutionObservation struct {
 
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
+	// When true, the authentication execution with the specified authenticator inside the authentication flow with the specified alias parent_flow_alias is assumed to already exist, and it will be imported into state instead of being created. This attribute is useful when dealing with authentication executions that Keycloak creates automatically during realm creation, such as browser/identity-provider-redirector and registration/registration-user-creation. Note, that the execution will not be removed during destruction if import is true.
+	Import *bool `json:"import,omitempty" tf:"import,omitempty"`
+
 	// The alias of the flow this execution is attached to.
 	ParentFlowAlias *string `json:"parentFlowAlias,omitempty" tf:"parent_flow_alias,omitempty"`
+
+	Priority *float64 `json:"priority,omitempty" tf:"priority,omitempty"`
 
 	// The realm the authentication execution exists in.
 	RealmID *string `json:"realmId,omitempty" tf:"realm_id,omitempty"`
@@ -71,6 +81,10 @@ type ExecutionParameters struct {
 	// The name of the authenticator. This can be found by experimenting with the GUI and looking at HTTP requests within the network tab of your browser's development tools.
 	// +kubebuilder:validation:Optional
 	Authenticator *string `json:"authenticator,omitempty" tf:"authenticator,omitempty"`
+
+	// When true, the authentication execution with the specified authenticator inside the authentication flow with the specified alias parent_flow_alias is assumed to already exist, and it will be imported into state instead of being created. This attribute is useful when dealing with authentication executions that Keycloak creates automatically during realm creation, such as browser/identity-provider-redirector and registration/registration-user-creation. Note, that the execution will not be removed during destruction if import is true.
+	// +kubebuilder:validation:Optional
+	Import *bool `json:"import,omitempty" tf:"import,omitempty"`
 
 	// The alias of the flow this execution is attached to.
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow
@@ -87,6 +101,9 @@ type ExecutionParameters struct {
 	// Selector for a Flow in authenticationflow to populate parentFlowAlias.
 	// +kubebuilder:validation:Optional
 	ParentFlowAliasSelector *v1.Selector `json:"parentFlowAliasSelector,omitempty" tf:"-"`
+
+	// +kubebuilder:validation:Optional
+	Priority *float64 `json:"priority,omitempty" tf:"priority,omitempty"`
 
 	// The realm the authentication execution exists in.
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-keycloak/apis/realm/v1alpha1.Realm

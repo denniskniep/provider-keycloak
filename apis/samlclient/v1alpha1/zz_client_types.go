@@ -43,6 +43,7 @@ type AuthenticationFlowBindingOverridesParameters struct {
 }
 
 type ClientInitParameters struct {
+	AlwaysDisplayInConsole *bool `json:"alwaysDisplayInConsole,omitempty" tf:"always_display_in_console,omitempty"`
 
 	// SAML POST Binding URL for the client's assertion consumer service (login responses).
 	AssertionConsumerPostURL *string `json:"assertionConsumerPostUrl,omitempty" tf:"assertion_consumer_post_url,omitempty"`
@@ -169,6 +170,7 @@ type ClientInitParameters struct {
 }
 
 type ClientObservation struct {
+	AlwaysDisplayInConsole *bool `json:"alwaysDisplayInConsole,omitempty" tf:"always_display_in_console,omitempty"`
 
 	// SAML POST Binding URL for the client's assertion consumer service (login responses).
 	AssertionConsumerPostURL *string `json:"assertionConsumerPostUrl,omitempty" tf:"assertion_consumer_post_url,omitempty"`
@@ -287,6 +289,9 @@ type ClientObservation struct {
 }
 
 type ClientParameters struct {
+
+	// +kubebuilder:validation:Optional
+	AlwaysDisplayInConsole *bool `json:"alwaysDisplayInConsole,omitempty" tf:"always_display_in_console,omitempty"`
 
 	// SAML POST Binding URL for the client's assertion consumer service (login responses).
 	// +kubebuilder:validation:Optional

@@ -10,13 +10,15 @@ export TERRAFORM_VERSION ?= 1.5.7
 # licensed under BSL, which is not permitted.
 TERRAFORM_VERSION_VALID := $(shell [ "$(TERRAFORM_VERSION)" = "`printf "$(TERRAFORM_VERSION)\n1.6" | sort -V | head -n1`" ] && echo 1 || echo 0)
 
-export TERRAFORM_PROVIDER_SOURCE ?= mrparkers/keycloak
-export TERRAFORM_PROVIDER_REPO ?= https://github.com/mrparkers/terraform-provider-keycloak
-export TERRAFORM_PROVIDER_VERSION ?= 4.4.0
+export TERRAFORM_PROVIDER_SOURCE ?= denniskniep/keycloak
+export TERRAFORM_PROVIDER_REPO ?= https://github.com/denniskniep/terraform-provider-keycloak
+export TERRAFORM_PROVIDER_VERSION ?= 5-pre-2.0.0
+export TERRAFORM_PROVIDER_PLATFORM ?= linux_amd64
 export TERRAFORM_PROVIDER_DOWNLOAD_NAME ?= terraform-provider-keycloak
 export TERRAFORM_PROVIDER_DOWNLOAD_URL_PREFIX ?= ${TERRAFORM_PROVIDER_REPO}/releases/download/v$(TERRAFORM_PROVIDER_VERSION)
-export TERRAFORM_NATIVE_PROVIDER_BINARY ?= terraform-provider-keycloak_v4.4.0
+export TERRAFORM_NATIVE_PROVIDER_BINARY ?= terraform-provider-keycloak_v5-pre-2.0.0
 export TERRAFORM_DOCS_PATH ?= docs/resources
+export TERRAFORM_FILE_MIRROR ?= ~/.terraform.d/plugins/registry.terraform.io
 
 export GOLANGCILINT_VERSION ?= 1.57.2
 
@@ -71,10 +73,10 @@ IMAGES = $(PROJECT_NAME)
 # ====================================================================================
 # Setup XPKG
 
-XPKG_REG_ORGS ?= xpkg.upbound.io/crossplane-contrib
+XPKG_REG_ORGS ?= xpkg.upbound.io/denniskniep
 # NOTE(hasheddan): skip promoting on xpkg.upbound.io as channel tags are
 # inferred.
-XPKG_REG_ORGS_NO_PROMOTE ?= xpkg.upbound.io/crossplane-contrib
+XPKG_REG_ORGS_NO_PROMOTE ?= xpkg.upbound.io/denniskniep
 XPKGS = $(PROJECT_NAME)
 -include build/makelib/xpkg.mk
 
@@ -123,8 +125,13 @@ $(TERRAFORM): check-terraform-version
 $(TERRAFORM_PROVIDER_SCHEMA): $(TERRAFORM)
 	@$(INFO) generating provider schema for $(TERRAFORM_PROVIDER_SOURCE) $(TERRAFORM_PROVIDER_VERSION)
 	@mkdir -p $(TERRAFORM_WORKDIR)
+	
+	@mkdir -p $(TERRAFORM_FILE_MIRROR)/$(TERRAFORM_PROVIDER_SOURCE)/$(TERRAFORM_PROVIDER_VERSION)/${TERRAFORM_PROVIDER_PLATFORM}
+	@curl -fsSL ${TERRAFORM_PROVIDER_DOWNLOAD_URL_PREFIX}/${TERRAFORM_PROVIDER_DOWNLOAD_NAME}_${TERRAFORM_PROVIDER_VERSION}_${TERRAFORM_PROVIDER_PLATFORM}.zip -o $(TERRAFORM_FILE_MIRROR)/$(TERRAFORM_PROVIDER_SOURCE)/$(TERRAFORM_PROVIDER_VERSION)/${TERRAFORM_PROVIDER_PLATFORM}/terraform.zip
+	@unzip -o $(TERRAFORM_FILE_MIRROR)/$(TERRAFORM_PROVIDER_SOURCE)/$(TERRAFORM_PROVIDER_VERSION)/${TERRAFORM_PROVIDER_PLATFORM}/terraform.zip -d $(TERRAFORM_FILE_MIRROR)/$(TERRAFORM_PROVIDER_SOURCE)/$(TERRAFORM_PROVIDER_VERSION)/${TERRAFORM_PROVIDER_PLATFORM}/
+	
 	@echo '{"terraform":[{"required_providers":[{"provider":{"source":"'"$(TERRAFORM_PROVIDER_SOURCE)"'","version":"'"$(TERRAFORM_PROVIDER_VERSION)"'"}}],"required_version":"'"$(TERRAFORM_VERSION)"'"}]}' > $(TERRAFORM_WORKDIR)/main.tf.json
-	@$(TERRAFORM) -chdir=$(TERRAFORM_WORKDIR) init > $(TERRAFORM_WORKDIR)/terraform-logs.txt 2>&1
+	@$(TERRAFORM) -chdir=$(TERRAFORM_WORKDIR) init -upgrade > $(TERRAFORM_WORKDIR)/terraform-logs.txt 2>&1
 	@$(TERRAFORM) -chdir=$(TERRAFORM_WORKDIR) providers schema -json=true > $(TERRAFORM_PROVIDER_SCHEMA) 2>> $(TERRAFORM_WORKDIR)/terraform-logs.txt
 	@$(OK) generating provider schema for $(TERRAFORM_PROVIDER_SOURCE) $(TERRAFORM_PROVIDER_VERSION)
 

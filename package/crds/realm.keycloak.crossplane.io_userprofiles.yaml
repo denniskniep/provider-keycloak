@@ -250,6 +250,8 @@ spec:
                             type: string
                         type: object
                     type: object
+                  unmanagedAttributePolicy:
+                    type: string
                 type: object
               initProvider:
                 description: |-
@@ -442,6 +444,8 @@ spec:
                             type: string
                         type: object
                     type: object
+                  unmanagedAttributePolicy:
+                    type: string
                 type: object
               managementPolicies:
                 default:
@@ -720,6 +724,8 @@ spec:
                     type: string
                   realmId:
                     description: The ID of the realm the user profile applies to.
+                    type: string
+                  unmanagedAttributePolicy:
                     type: string
                 type: object
               conditions:

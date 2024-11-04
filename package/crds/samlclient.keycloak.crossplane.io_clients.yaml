@@ -72,6 +72,8 @@ spec:
                 type: string
               forProvider:
                 properties:
+                  alwaysDisplayInConsole:
+                    type: boolean
                   assertionConsumerPostUrl:
                     description: SAML POST Binding URL for the client's assertion
                       consumer service (login responses).
@@ -390,6 +392,8 @@ spec:
                   for example because of an external controller is managing them, like an
                   autoscaler.
                 properties:
+                  alwaysDisplayInConsole:
+                    type: boolean
                   assertionConsumerPostUrl:
                     description: SAML POST Binding URL for the client's assertion
                       consumer service (login responses).
@@ -867,6 +871,8 @@ spec:
             properties:
               atProvider:
                 properties:
+                  alwaysDisplayInConsole:
+                    type: boolean
                   assertionConsumerPostUrl:
                     description: SAML POST Binding URL for the client's assertion
                       consumer service (login responses).

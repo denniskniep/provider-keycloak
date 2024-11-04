@@ -21,6 +21,9 @@ type FlowInitParameters struct {
 	// A description for the authentication flow.
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
+	// When true, the authentication flow with the specified alias is assumed to already exist, and it will be imported into state instead of being created. This attribute is useful when dealing with authentication flows that Keycloak creates automatically during realm creation, such as browser and clients. Note, that the flow will not be removed during destruction if import is true.
+	Import *bool `json:"import,omitempty" tf:"import,omitempty"`
+
 	// The type of authentication flow to create. Valid choices include basic-flow and client-flow. Defaults to basic-flow.
 	ProviderID *string `json:"providerId,omitempty" tf:"provider_id,omitempty"`
 
@@ -47,6 +50,9 @@ type FlowObservation struct {
 
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
+	// When true, the authentication flow with the specified alias is assumed to already exist, and it will be imported into state instead of being created. This attribute is useful when dealing with authentication flows that Keycloak creates automatically during realm creation, such as browser and clients. Note, that the flow will not be removed during destruction if import is true.
+	Import *bool `json:"import,omitempty" tf:"import,omitempty"`
+
 	// The type of authentication flow to create. Valid choices include basic-flow and client-flow. Defaults to basic-flow.
 	ProviderID *string `json:"providerId,omitempty" tf:"provider_id,omitempty"`
 
@@ -63,6 +69,10 @@ type FlowParameters struct {
 	// A description for the authentication flow.
 	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+
+	// When true, the authentication flow with the specified alias is assumed to already exist, and it will be imported into state instead of being created. This attribute is useful when dealing with authentication flows that Keycloak creates automatically during realm creation, such as browser and clients. Note, that the flow will not be removed during destruction if import is true.
+	// +kubebuilder:validation:Optional
+	Import *bool `json:"import,omitempty" tf:"import,omitempty"`
 
 	// The type of authentication flow to create. Valid choices include basic-flow and client-flow. Defaults to basic-flow.
 	// +kubebuilder:validation:Optional

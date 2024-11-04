@@ -26,6 +26,9 @@ type SubflowInitParameters struct {
 	// A description for the authentication subflow.
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
+	// When true, the authentication subflow with the specified alias inside the parent flow with the specified alias parent_flow_alias is assumed to already exist, and it will be imported into state instead of being created. This attribute is useful when dealing with authentication subflows that Keycloak creates automatically during realm creation, such as browser/forms and first broker login/User creation of linking. Note, that the subflow will not be removed during destruction if import is true.
+	Import *bool `json:"import,omitempty" tf:"import,omitempty"`
+
 	// The alias for the parent authentication flow.
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane-contrib/provider-keycloak/config/common.AuthenticationFlowAliasExtractor()
@@ -77,6 +80,9 @@ type SubflowObservation struct {
 
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
+	// When true, the authentication subflow with the specified alias inside the parent flow with the specified alias parent_flow_alias is assumed to already exist, and it will be imported into state instead of being created. This attribute is useful when dealing with authentication subflows that Keycloak creates automatically during realm creation, such as browser/forms and first broker login/User creation of linking. Note, that the subflow will not be removed during destruction if import is true.
+	Import *bool `json:"import,omitempty" tf:"import,omitempty"`
+
 	// The alias for the parent authentication flow.
 	ParentFlowAlias *string `json:"parentFlowAlias,omitempty" tf:"parent_flow_alias,omitempty"`
 
@@ -107,6 +113,10 @@ type SubflowParameters struct {
 	// A description for the authentication subflow.
 	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
+
+	// When true, the authentication subflow with the specified alias inside the parent flow with the specified alias parent_flow_alias is assumed to already exist, and it will be imported into state instead of being created. This attribute is useful when dealing with authentication subflows that Keycloak creates automatically during realm creation, such as browser/forms and first broker login/User creation of linking. Note, that the subflow will not be removed during destruction if import is true.
+	// +kubebuilder:validation:Optional
+	Import *bool `json:"import,omitempty" tf:"import,omitempty"`
 
 	// The alias for the parent authentication flow.
 	// +crossplane:generate:reference:type=github.com/crossplane-contrib/provider-keycloak/apis/authenticationflow/v1alpha1.Flow

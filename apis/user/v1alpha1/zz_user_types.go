@@ -99,6 +99,9 @@ type UserInitParameters struct {
 	// The user's first name.
 	FirstName *string `json:"firstName,omitempty" tf:"first_name,omitempty"`
 
+	// When true, the user with the specified username is assumed to already exist, and it will be imported into state instead of being created. This attribute is useful when dealing with users that Keycloak creates automatically during realm creation, such as admin. Note, that the user will not be removed during destruction if import is true.
+	Import *bool `json:"import,omitempty" tf:"import,omitempty"`
+
 	// When given, the user's initial password will be set. This attribute is only respected during initial user creation.
 	InitialPassword []InitialPasswordInitParameters `json:"initialPassword,omitempty" tf:"initial_password,omitempty"`
 
@@ -148,6 +151,9 @@ type UserObservation struct {
 
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
+	// When true, the user with the specified username is assumed to already exist, and it will be imported into state instead of being created. This attribute is useful when dealing with users that Keycloak creates automatically during realm creation, such as admin. Note, that the user will not be removed during destruction if import is true.
+	Import *bool `json:"import,omitempty" tf:"import,omitempty"`
+
 	// When given, the user's initial password will be set. This attribute is only respected during initial user creation.
 	InitialPassword []InitialPasswordObservation `json:"initialPassword,omitempty" tf:"initial_password,omitempty"`
 
@@ -191,6 +197,10 @@ type UserParameters struct {
 	// The user's first name.
 	// +kubebuilder:validation:Optional
 	FirstName *string `json:"firstName,omitempty" tf:"first_name,omitempty"`
+
+	// When true, the user with the specified username is assumed to already exist, and it will be imported into state instead of being created. This attribute is useful when dealing with users that Keycloak creates automatically during realm creation, such as admin. Note, that the user will not be removed during destruction if import is true.
+	// +kubebuilder:validation:Optional
+	Import *bool `json:"import,omitempty" tf:"import,omitempty"`
 
 	// When given, the user's initial password will be set. This attribute is only respected during initial user creation.
 	// +kubebuilder:validation:Optional

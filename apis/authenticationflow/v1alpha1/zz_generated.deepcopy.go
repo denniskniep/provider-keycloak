@@ -714,6 +714,11 @@ func (in *ExecutionInitParameters) DeepCopyInto(out *ExecutionInitParameters) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.Import != nil {
+		in, out := &in.Import, &out.Import
+		*out = new(bool)
+		**out = **in
+	}
 	if in.ParentFlowAlias != nil {
 		in, out := &in.ParentFlowAlias, &out.ParentFlowAlias
 		*out = new(string)
@@ -728,6 +733,11 @@ func (in *ExecutionInitParameters) DeepCopyInto(out *ExecutionInitParameters) {
 		in, out := &in.ParentFlowAliasSelector, &out.ParentFlowAliasSelector
 		*out = new(v1.Selector)
 		(*in).DeepCopyInto(*out)
+	}
+	if in.Priority != nil {
+		in, out := &in.Priority, &out.Priority
+		*out = new(float64)
+		**out = **in
 	}
 	if in.RealmID != nil {
 		in, out := &in.RealmID, &out.RealmID
@@ -806,9 +816,19 @@ func (in *ExecutionObservation) DeepCopyInto(out *ExecutionObservation) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.Import != nil {
+		in, out := &in.Import, &out.Import
+		*out = new(bool)
+		**out = **in
+	}
 	if in.ParentFlowAlias != nil {
 		in, out := &in.ParentFlowAlias, &out.ParentFlowAlias
 		*out = new(string)
+		**out = **in
+	}
+	if in.Priority != nil {
+		in, out := &in.Priority, &out.Priority
+		*out = new(float64)
 		**out = **in
 	}
 	if in.RealmID != nil {
@@ -841,6 +861,11 @@ func (in *ExecutionParameters) DeepCopyInto(out *ExecutionParameters) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.Import != nil {
+		in, out := &in.Import, &out.Import
+		*out = new(bool)
+		**out = **in
+	}
 	if in.ParentFlowAlias != nil {
 		in, out := &in.ParentFlowAlias, &out.ParentFlowAlias
 		*out = new(string)
@@ -855,6 +880,11 @@ func (in *ExecutionParameters) DeepCopyInto(out *ExecutionParameters) {
 		in, out := &in.ParentFlowAliasSelector, &out.ParentFlowAliasSelector
 		*out = new(v1.Selector)
 		(*in).DeepCopyInto(*out)
+	}
+	if in.Priority != nil {
+		in, out := &in.Priority, &out.Priority
+		*out = new(float64)
+		**out = **in
 	}
 	if in.RealmID != nil {
 		in, out := &in.RealmID, &out.RealmID
@@ -963,6 +993,11 @@ func (in *FlowInitParameters) DeepCopyInto(out *FlowInitParameters) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.Import != nil {
+		in, out := &in.Import, &out.Import
+		*out = new(bool)
+		**out = **in
+	}
 	if in.ProviderID != nil {
 		in, out := &in.ProviderID, &out.ProviderID
 		*out = new(string)
@@ -1045,6 +1080,11 @@ func (in *FlowObservation) DeepCopyInto(out *FlowObservation) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.Import != nil {
+		in, out := &in.Import, &out.Import
+		*out = new(bool)
+		**out = **in
+	}
 	if in.ProviderID != nil {
 		in, out := &in.ProviderID, &out.ProviderID
 		*out = new(string)
@@ -1078,6 +1118,11 @@ func (in *FlowParameters) DeepCopyInto(out *FlowParameters) {
 	if in.Description != nil {
 		in, out := &in.Description, &out.Description
 		*out = new(string)
+		**out = **in
+	}
+	if in.Import != nil {
+		in, out := &in.Import, &out.Import
+		*out = new(bool)
 		**out = **in
 	}
 	if in.ProviderID != nil {
@@ -1192,6 +1237,11 @@ func (in *SubflowInitParameters) DeepCopyInto(out *SubflowInitParameters) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.Import != nil {
+		in, out := &in.Import, &out.Import
+		*out = new(bool)
+		**out = **in
+	}
 	if in.ParentFlowAlias != nil {
 		in, out := &in.ParentFlowAlias, &out.ParentFlowAlias
 		*out = new(string)
@@ -1299,6 +1349,11 @@ func (in *SubflowObservation) DeepCopyInto(out *SubflowObservation) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.Import != nil {
+		in, out := &in.Import, &out.Import
+		*out = new(bool)
+		**out = **in
+	}
 	if in.ParentFlowAlias != nil {
 		in, out := &in.ParentFlowAlias, &out.ParentFlowAlias
 		*out = new(string)
@@ -1347,6 +1402,11 @@ func (in *SubflowParameters) DeepCopyInto(out *SubflowParameters) {
 	if in.Description != nil {
 		in, out := &in.Description, &out.Description
 		*out = new(string)
+		**out = **in
+	}
+	if in.Import != nil {
+		in, out := &in.Import, &out.Import
+		*out = new(bool)
 		**out = **in
 	}
 	if in.ParentFlowAlias != nil {

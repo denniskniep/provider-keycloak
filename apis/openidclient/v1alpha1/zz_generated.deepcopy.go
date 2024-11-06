@@ -3239,16 +3239,6 @@ func (in *ClientServiceAccountRoleInitParameters) DeepCopyInto(out *ClientServic
 		*out = new(string)
 		**out = **in
 	}
-	if in.RoleRef != nil {
-		in, out := &in.RoleRef, &out.RoleRef
-		*out = new(v1.Reference)
-		(*in).DeepCopyInto(*out)
-	}
-	if in.RoleSelector != nil {
-		in, out := &in.RoleSelector, &out.RoleSelector
-		*out = new(v1.Selector)
-		(*in).DeepCopyInto(*out)
-	}
 	if in.ServiceAccountUserClientIDRef != nil {
 		in, out := &in.ServiceAccountUserClientIDRef, &out.ServiceAccountUserClientIDRef
 		*out = new(v1.Reference)
@@ -3385,16 +3375,6 @@ func (in *ClientServiceAccountRoleParameters) DeepCopyInto(out *ClientServiceAcc
 		in, out := &in.Role, &out.Role
 		*out = new(string)
 		**out = **in
-	}
-	if in.RoleRef != nil {
-		in, out := &in.RoleRef, &out.RoleRef
-		*out = new(v1.Reference)
-		(*in).DeepCopyInto(*out)
-	}
-	if in.RoleSelector != nil {
-		in, out := &in.RoleSelector, &out.RoleSelector
-		*out = new(v1.Selector)
-		(*in).DeepCopyInto(*out)
 	}
 	if in.ServiceAccountUserClientIDRef != nil {
 		in, out := &in.ServiceAccountUserClientIDRef, &out.ServiceAccountUserClientIDRef

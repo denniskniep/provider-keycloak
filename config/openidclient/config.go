@@ -51,10 +51,11 @@ func Configure(p *config.Provider) {
 			SelectorFieldName: "ServiceAccountUserClientIDSelector",
 		}
 		// The name of the role that is assigned.
-		r.References["role"] = config.Reference{
+		// TODO: fix, temp. removed it to not get "import cycle" errors between role <-> openidclient
+		/*r.References["role"] = config.Reference{
 			TerraformName: "keycloak_role",
 			Extractor:     `github.com/crossplane/upjet/pkg/resource.ExtractParamPath("name", false)`,
-		}
+		}*/
 		r.LateInitializer = config.LateInitializer{
 			IgnoredFields: []string{"service_account_user_id"},
 		}

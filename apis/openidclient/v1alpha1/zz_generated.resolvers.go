@@ -12,7 +12,6 @@ import (
 	common "github.com/crossplane-contrib/provider-keycloak/config/common"
 	apisresolver "github.com/crossplane-contrib/provider-keycloak/internal/apis"
 	reference "github.com/crossplane/crossplane-runtime/pkg/reference"
-	resource "github.com/crossplane/upjet/pkg/resource"
 	errors "github.com/pkg/errors"
 	client "sigs.k8s.io/controller-runtime/pkg/client"
 
@@ -816,25 +815,6 @@ func (mg *ClientServiceAccountRole) ResolveReferences(ctx context.Context, c cli
 	mg.Spec.ForProvider.RealmID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.RealmIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("role.keycloak.crossplane.io", "v1alpha1", "Role", "RoleList")
-		if err != nil {
-			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
-		}
-
-		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
-			CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Role),
-			Extract:      resource.ExtractParamPath("name", false),
-			Reference:    mg.Spec.ForProvider.RoleRef,
-			Selector:     mg.Spec.ForProvider.RoleSelector,
-			To:           reference.To{List: l, Managed: m},
-		})
-	}
-	if err != nil {
-		return errors.Wrap(err, "mg.Spec.ForProvider.Role")
-	}
-	mg.Spec.ForProvider.Role = reference.ToPtrValue(rsp.ResolvedValue)
-	mg.Spec.ForProvider.RoleRef = rsp.ResolvedReference
-	{
 		m, l, err = apisresolver.GetManagedResource("openidclient.keycloak.crossplane.io", "v1alpha1", "Client", "ClientList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
@@ -891,25 +871,6 @@ func (mg *ClientServiceAccountRole) ResolveReferences(ctx context.Context, c cli
 	}
 	mg.Spec.InitProvider.RealmID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.RealmIDRef = rsp.ResolvedReference
-	{
-		m, l, err = apisresolver.GetManagedResource("role.keycloak.crossplane.io", "v1alpha1", "Role", "RoleList")
-		if err != nil {
-			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
-		}
-
-		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
-			CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Role),
-			Extract:      resource.ExtractParamPath("name", false),
-			Reference:    mg.Spec.InitProvider.RoleRef,
-			Selector:     mg.Spec.InitProvider.RoleSelector,
-			To:           reference.To{List: l, Managed: m},
-		})
-	}
-	if err != nil {
-		return errors.Wrap(err, "mg.Spec.InitProvider.Role")
-	}
-	mg.Spec.InitProvider.Role = reference.ToPtrValue(rsp.ResolvedValue)
-	mg.Spec.InitProvider.RoleRef = rsp.ResolvedReference
 	{
 		m, l, err = apisresolver.GetManagedResource("openidclient.keycloak.crossplane.io", "v1alpha1", "Client", "ClientList")
 		if err != nil {

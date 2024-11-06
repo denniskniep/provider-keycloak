@@ -11,7 +11,8 @@ export TERRAFORM_VERSION ?= 1.5.7
 TERRAFORM_VERSION_VALID := $(shell [ "$(TERRAFORM_VERSION)" = "`printf "$(TERRAFORM_VERSION)\n1.6" | sort -V | head -n1`" ] && echo 1 || echo 0)
 
 export TERRAFORM_PROVIDER_SOURCE ?= denniskniep/keycloak
-export TERRAFORM_PROVIDER_REPO ?= https://github.com/denniskniep/terraform-provider-keycloak
+export TERRAFORM_PROVIDER_REPO_NAME ?= github.com/denniskniep/terraform-provider-keycloak
+export TERRAFORM_PROVIDER_REPO ?= https://$(TERRAFORM_PROVIDER_REPO_NAME)
 export TERRAFORM_PROVIDER_VERSION ?= 5-pre-2.0.0
 export TERRAFORM_PROVIDER_PLATFORM ?= linux_amd64
 export TERRAFORM_PROVIDER_DOWNLOAD_NAME ?= terraform-provider-keycloak
@@ -133,6 +134,7 @@ $(TERRAFORM_PROVIDER_SCHEMA): $(TERRAFORM)
 	@echo '{"terraform":[{"required_providers":[{"provider":{"source":"'"$(TERRAFORM_PROVIDER_SOURCE)"'","version":"'"$(TERRAFORM_PROVIDER_VERSION)"'"}}],"required_version":"'"$(TERRAFORM_VERSION)"'"}]}' > $(TERRAFORM_WORKDIR)/main.tf.json
 	@$(TERRAFORM) -chdir=$(TERRAFORM_WORKDIR) init -upgrade > $(TERRAFORM_WORKDIR)/terraform-logs.txt 2>&1
 	@$(TERRAFORM) -chdir=$(TERRAFORM_WORKDIR) providers schema -json=true > $(TERRAFORM_PROVIDER_SCHEMA) 2>> $(TERRAFORM_WORKDIR)/terraform-logs.txt
+	@go get $(TERRAFORM_PROVIDER_REPO_NAME)@v$(TERRAFORM_PROVIDER_VERSION)
 	@$(OK) generating provider schema for $(TERRAFORM_PROVIDER_SOURCE) $(TERRAFORM_PROVIDER_VERSION)
 
 pull-docs:

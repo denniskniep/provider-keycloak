@@ -7,6 +7,186 @@ package v1alpha1
 
 import xpv1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 
+// GetCondition of this KeystoreAesGenerated.
+func (mg *KeystoreAesGenerated) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this KeystoreAesGenerated.
+func (mg *KeystoreAesGenerated) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicies of this KeystoreAesGenerated.
+func (mg *KeystoreAesGenerated) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this KeystoreAesGenerated.
+func (mg *KeystoreAesGenerated) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetPublishConnectionDetailsTo of this KeystoreAesGenerated.
+func (mg *KeystoreAesGenerated) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this KeystoreAesGenerated.
+func (mg *KeystoreAesGenerated) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this KeystoreAesGenerated.
+func (mg *KeystoreAesGenerated) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this KeystoreAesGenerated.
+func (mg *KeystoreAesGenerated) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicies of this KeystoreAesGenerated.
+func (mg *KeystoreAesGenerated) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this KeystoreAesGenerated.
+func (mg *KeystoreAesGenerated) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetPublishConnectionDetailsTo of this KeystoreAesGenerated.
+func (mg *KeystoreAesGenerated) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this KeystoreAesGenerated.
+func (mg *KeystoreAesGenerated) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this KeystoreEcdsaGenerated.
+func (mg *KeystoreEcdsaGenerated) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this KeystoreEcdsaGenerated.
+func (mg *KeystoreEcdsaGenerated) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicies of this KeystoreEcdsaGenerated.
+func (mg *KeystoreEcdsaGenerated) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this KeystoreEcdsaGenerated.
+func (mg *KeystoreEcdsaGenerated) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetPublishConnectionDetailsTo of this KeystoreEcdsaGenerated.
+func (mg *KeystoreEcdsaGenerated) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this KeystoreEcdsaGenerated.
+func (mg *KeystoreEcdsaGenerated) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this KeystoreEcdsaGenerated.
+func (mg *KeystoreEcdsaGenerated) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this KeystoreEcdsaGenerated.
+func (mg *KeystoreEcdsaGenerated) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicies of this KeystoreEcdsaGenerated.
+func (mg *KeystoreEcdsaGenerated) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this KeystoreEcdsaGenerated.
+func (mg *KeystoreEcdsaGenerated) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetPublishConnectionDetailsTo of this KeystoreEcdsaGenerated.
+func (mg *KeystoreEcdsaGenerated) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this KeystoreEcdsaGenerated.
+func (mg *KeystoreEcdsaGenerated) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this KeystoreHMACGenerated.
+func (mg *KeystoreHMACGenerated) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this KeystoreHMACGenerated.
+func (mg *KeystoreHMACGenerated) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicies of this KeystoreHMACGenerated.
+func (mg *KeystoreHMACGenerated) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this KeystoreHMACGenerated.
+func (mg *KeystoreHMACGenerated) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetPublishConnectionDetailsTo of this KeystoreHMACGenerated.
+func (mg *KeystoreHMACGenerated) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this KeystoreHMACGenerated.
+func (mg *KeystoreHMACGenerated) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this KeystoreHMACGenerated.
+func (mg *KeystoreHMACGenerated) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this KeystoreHMACGenerated.
+func (mg *KeystoreHMACGenerated) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicies of this KeystoreHMACGenerated.
+func (mg *KeystoreHMACGenerated) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this KeystoreHMACGenerated.
+func (mg *KeystoreHMACGenerated) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetPublishConnectionDetailsTo of this KeystoreHMACGenerated.
+func (mg *KeystoreHMACGenerated) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this KeystoreHMACGenerated.
+func (mg *KeystoreHMACGenerated) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
 // GetCondition of this KeystoreRsa.
 func (mg *KeystoreRsa) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)
@@ -64,6 +244,66 @@ func (mg *KeystoreRsa) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDe
 
 // SetWriteConnectionSecretToReference of this KeystoreRsa.
 func (mg *KeystoreRsa) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this KeystoreRsaGenerated.
+func (mg *KeystoreRsaGenerated) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this KeystoreRsaGenerated.
+func (mg *KeystoreRsaGenerated) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicies of this KeystoreRsaGenerated.
+func (mg *KeystoreRsaGenerated) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this KeystoreRsaGenerated.
+func (mg *KeystoreRsaGenerated) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetPublishConnectionDetailsTo of this KeystoreRsaGenerated.
+func (mg *KeystoreRsaGenerated) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this KeystoreRsaGenerated.
+func (mg *KeystoreRsaGenerated) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this KeystoreRsaGenerated.
+func (mg *KeystoreRsaGenerated) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this KeystoreRsaGenerated.
+func (mg *KeystoreRsaGenerated) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicies of this KeystoreRsaGenerated.
+func (mg *KeystoreRsaGenerated) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this KeystoreRsaGenerated.
+func (mg *KeystoreRsaGenerated) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetPublishConnectionDetailsTo of this KeystoreRsaGenerated.
+func (mg *KeystoreRsaGenerated) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this KeystoreRsaGenerated.
+func (mg *KeystoreRsaGenerated) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 

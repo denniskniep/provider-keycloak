@@ -32,6 +32,30 @@ func Configure(p *config.Provider) {
 		}
 	})
 
+	p.AddResourceConfigurator("keycloak_realm_keystore_rsa_generated", func(r *config.Resource) {
+		// We need to override the default group that upjet generated for
+		// this resource, which would be "github"
+		r.ShortGroup = Group
+	})
+
+	p.AddResourceConfigurator("keycloak_realm_keystore_ecdsa_generated", func(r *config.Resource) {
+		// We need to override the default group that upjet generated for
+		// this resource, which would be "github"
+		r.ShortGroup = Group
+	})
+
+	p.AddResourceConfigurator("keycloak_realm_keystore_aes_generated", func(r *config.Resource) {
+		// We need to override the default group that upjet generated for
+		// this resource, which would be "github"
+		r.ShortGroup = Group
+	})
+
+	p.AddResourceConfigurator("keycloak_realm_keystore_hmac_generated", func(r *config.Resource) {
+		// We need to override the default group that upjet generated for
+		// this resource, which would be "github"
+		r.ShortGroup = Group
+	})
+
 	p.AddResourceConfigurator("keycloak_realm_user_profile", func(r *config.Resource) {
 		r.ShortGroup = Group
 	})

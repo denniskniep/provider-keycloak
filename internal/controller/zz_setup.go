@@ -48,7 +48,11 @@ import (
 	clientuserpolicy "github.com/crossplane-contrib/provider-keycloak/internal/controller/openidclient/clientuserpolicy"
 	groupmembershipprotocolmapper "github.com/crossplane-contrib/provider-keycloak/internal/controller/openidgroup/groupmembershipprotocolmapper"
 	providerconfig "github.com/crossplane-contrib/provider-keycloak/internal/controller/providerconfig"
+	keystoreaesgenerated "github.com/crossplane-contrib/provider-keycloak/internal/controller/realm/keystoreaesgenerated"
+	keystoreecdsagenerated "github.com/crossplane-contrib/provider-keycloak/internal/controller/realm/keystoreecdsagenerated"
+	keystorehmacgenerated "github.com/crossplane-contrib/provider-keycloak/internal/controller/realm/keystorehmacgenerated"
 	keystorersa "github.com/crossplane-contrib/provider-keycloak/internal/controller/realm/keystorersa"
+	keystorersagenerated "github.com/crossplane-contrib/provider-keycloak/internal/controller/realm/keystorersagenerated"
 	realm "github.com/crossplane-contrib/provider-keycloak/internal/controller/realm/realm"
 	realmevents "github.com/crossplane-contrib/provider-keycloak/internal/controller/realm/realmevents"
 	requiredaction "github.com/crossplane-contrib/provider-keycloak/internal/controller/realm/requiredaction"
@@ -107,7 +111,11 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		clientuserpolicy.Setup,
 		groupmembershipprotocolmapper.Setup,
 		providerconfig.Setup,
+		keystoreaesgenerated.Setup,
+		keystoreecdsagenerated.Setup,
+		keystorehmacgenerated.Setup,
 		keystorersa.Setup,
+		keystorersagenerated.Setup,
 		realm.Setup,
 		realmevents.Setup,
 		requiredaction.Setup,

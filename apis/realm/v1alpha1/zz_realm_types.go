@@ -1053,13 +1053,13 @@ type WebAuthnPasswordlessPolicyInitParameters struct {
 	// The timeout value for creating a user's public key credential in seconds. When set to 0, this timeout option is not adapted. Defaults to 0.
 	CreateTimeout *float64 `json:"createTimeout,omitempty" tf:"create_timeout,omitempty"`
 
-	// A human readable server name for the WebAuthn Relying Party. Defaults to keycloak.
+	// A human-readable server name for the WebAuthn Relying Party. Defaults to keycloak.
 	RelyingPartyEntityName *string `json:"relyingPartyEntityName,omitempty" tf:"relying_party_entity_name,omitempty"`
 
 	// The WebAuthn relying party ID.
 	RelyingPartyID *string `json:"relyingPartyId,omitempty" tf:"relying_party_id,omitempty"`
 
-	// Specifies whether or not a public key should be created to represent the resident key. Valid options are not specified, Yes, or No. Defaults to not specified.
+	// Specifies whether a public key should be created to represent the resident key. Valid options are not specified, Yes, or No. Defaults to not specified.
 	// Either Yes or No
 	RequireResidentKey *string `json:"requireResidentKey,omitempty" tf:"require_resident_key,omitempty"`
 
@@ -1093,13 +1093,13 @@ type WebAuthnPasswordlessPolicyObservation struct {
 	// The timeout value for creating a user's public key credential in seconds. When set to 0, this timeout option is not adapted. Defaults to 0.
 	CreateTimeout *float64 `json:"createTimeout,omitempty" tf:"create_timeout,omitempty"`
 
-	// A human readable server name for the WebAuthn Relying Party. Defaults to keycloak.
+	// A human-readable server name for the WebAuthn Relying Party. Defaults to keycloak.
 	RelyingPartyEntityName *string `json:"relyingPartyEntityName,omitempty" tf:"relying_party_entity_name,omitempty"`
 
 	// The WebAuthn relying party ID.
 	RelyingPartyID *string `json:"relyingPartyId,omitempty" tf:"relying_party_id,omitempty"`
 
-	// Specifies whether or not a public key should be created to represent the resident key. Valid options are not specified, Yes, or No. Defaults to not specified.
+	// Specifies whether a public key should be created to represent the resident key. Valid options are not specified, Yes, or No. Defaults to not specified.
 	// Either Yes or No
 	RequireResidentKey *string `json:"requireResidentKey,omitempty" tf:"require_resident_key,omitempty"`
 
@@ -1138,7 +1138,7 @@ type WebAuthnPasswordlessPolicyParameters struct {
 	// +kubebuilder:validation:Optional
 	CreateTimeout *float64 `json:"createTimeout,omitempty" tf:"create_timeout,omitempty"`
 
-	// A human readable server name for the WebAuthn Relying Party. Defaults to keycloak.
+	// A human-readable server name for the WebAuthn Relying Party. Defaults to keycloak.
 	// +kubebuilder:validation:Optional
 	RelyingPartyEntityName *string `json:"relyingPartyEntityName,omitempty" tf:"relying_party_entity_name,omitempty"`
 
@@ -1146,7 +1146,7 @@ type WebAuthnPasswordlessPolicyParameters struct {
 	// +kubebuilder:validation:Optional
 	RelyingPartyID *string `json:"relyingPartyId,omitempty" tf:"relying_party_id,omitempty"`
 
-	// Specifies whether or not a public key should be created to represent the resident key. Valid options are not specified, Yes, or No. Defaults to not specified.
+	// Specifies whether a public key should be created to represent the resident key. Valid options are not specified, Yes, or No. Defaults to not specified.
 	// Either Yes or No
 	// +kubebuilder:validation:Optional
 	RequireResidentKey *string `json:"requireResidentKey,omitempty" tf:"require_resident_key,omitempty"`
@@ -1183,13 +1183,13 @@ type WebAuthnPolicyInitParameters struct {
 	// The timeout value for creating a user's public key credential in seconds. When set to 0, this timeout option is not adapted. Defaults to 0.
 	CreateTimeout *float64 `json:"createTimeout,omitempty" tf:"create_timeout,omitempty"`
 
-	// A human readable server name for the WebAuthn Relying Party. Defaults to keycloak.
+	// A human-readable server name for the WebAuthn Relying Party. Defaults to keycloak.
 	RelyingPartyEntityName *string `json:"relyingPartyEntityName,omitempty" tf:"relying_party_entity_name,omitempty"`
 
 	// The WebAuthn relying party ID.
 	RelyingPartyID *string `json:"relyingPartyId,omitempty" tf:"relying_party_id,omitempty"`
 
-	// Specifies whether or not a public key should be created to represent the resident key. Valid options are not specified, Yes, or No. Defaults to not specified.
+	// Specifies whether a public key should be created to represent the resident key. Valid options are not specified, Yes, or No. Defaults to not specified.
 	// Either Yes or No
 	RequireResidentKey *string `json:"requireResidentKey,omitempty" tf:"require_resident_key,omitempty"`
 
@@ -1223,13 +1223,13 @@ type WebAuthnPolicyObservation struct {
 	// The timeout value for creating a user's public key credential in seconds. When set to 0, this timeout option is not adapted. Defaults to 0.
 	CreateTimeout *float64 `json:"createTimeout,omitempty" tf:"create_timeout,omitempty"`
 
-	// A human readable server name for the WebAuthn Relying Party. Defaults to keycloak.
+	// A human-readable server name for the WebAuthn Relying Party. Defaults to keycloak.
 	RelyingPartyEntityName *string `json:"relyingPartyEntityName,omitempty" tf:"relying_party_entity_name,omitempty"`
 
 	// The WebAuthn relying party ID.
 	RelyingPartyID *string `json:"relyingPartyId,omitempty" tf:"relying_party_id,omitempty"`
 
-	// Specifies whether or not a public key should be created to represent the resident key. Valid options are not specified, Yes, or No. Defaults to not specified.
+	// Specifies whether a public key should be created to represent the resident key. Valid options are not specified, Yes, or No. Defaults to not specified.
 	// Either Yes or No
 	RequireResidentKey *string `json:"requireResidentKey,omitempty" tf:"require_resident_key,omitempty"`
 
@@ -1268,7 +1268,7 @@ type WebAuthnPolicyParameters struct {
 	// +kubebuilder:validation:Optional
 	CreateTimeout *float64 `json:"createTimeout,omitempty" tf:"create_timeout,omitempty"`
 
-	// A human readable server name for the WebAuthn Relying Party. Defaults to keycloak.
+	// A human-readable server name for the WebAuthn Relying Party. Defaults to keycloak.
 	// +kubebuilder:validation:Optional
 	RelyingPartyEntityName *string `json:"relyingPartyEntityName,omitempty" tf:"relying_party_entity_name,omitempty"`
 
@@ -1276,7 +1276,7 @@ type WebAuthnPolicyParameters struct {
 	// +kubebuilder:validation:Optional
 	RelyingPartyID *string `json:"relyingPartyId,omitempty" tf:"relying_party_id,omitempty"`
 
-	// Specifies whether or not a public key should be created to represent the resident key. Valid options are not specified, Yes, or No. Defaults to not specified.
+	// Specifies whether a public key should be created to represent the resident key. Valid options are not specified, Yes, or No. Defaults to not specified.
 	// Either Yes or No
 	// +kubebuilder:validation:Optional
 	RequireResidentKey *string `json:"requireResidentKey,omitempty" tf:"require_resident_key,omitempty"`

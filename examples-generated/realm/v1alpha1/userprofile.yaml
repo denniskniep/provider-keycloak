@@ -51,6 +51,7 @@ spec:
     realmIdSelector:
       matchLabels:
         testing.upbound.io/example-name: my_realm
+    unmanagedAttributePolicy: ENABLED
 
 ---
 
@@ -64,6 +65,4 @@ metadata:
   name: realm
 spec:
   forProvider:
-    attributes:
-      userProfileEnabled: true
     realm: my-realm

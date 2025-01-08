@@ -151,7 +151,8 @@ You can explore the available custom resources:
 
 Run code-generation pipeline:
 ```console
-go run cmd/generator/main.go "$PWD"
+go install golang.org/x/tools/cmd/goimports@latest
+go run cmd/generator/main.go "$(pwd)"
 ```
 
 Checkout sub-repositories:

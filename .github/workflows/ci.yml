@@ -242,6 +242,15 @@ jobs:
           username: ${{ env.UPBOUND_MARKETPLACE_PUSH_ROBOT_USR }}
           password: ${{ secrets.UPBOUND_MARKETPLACE_PUSH_ROBOT_PSW }}
 
+      - name: Install up
+        if: env.UPBOUND_MARKETPLACE_PUSH_ROBOT_USR != ''
+        run: curl -sL "https://cli.upbound.io" | VERSION=v0.31.0 sh && sudo mv up /usr/local/bin/
+
+      - name: Login to Upbound
+        if: env.UPBOUND_MARKETPLACE_PUSH_ROBOT_USR != ''
+        run: |
+          echo "${{ secrets.UPBOUND_MARKETPLACE_PUSH_ROBOT_PSW }}" | up login -t -
+
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         with:

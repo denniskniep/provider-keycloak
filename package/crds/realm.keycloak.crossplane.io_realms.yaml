@@ -507,7 +507,7 @@ spec:
                             option is not adapted. Defaults to 0.
                           type: number
                         relyingPartyEntityName:
-                          description: A human readable server name for the WebAuthn
+                          description: A human-readable server name for the WebAuthn
                             Relying Party. Defaults to keycloak.
                           type: string
                         relyingPartyId:
@@ -515,7 +515,7 @@ spec:
                           type: string
                         requireResidentKey:
                           description: |-
-                            Specifies whether or not a public key should be created to represent the resident key. Valid options are not specified, Yes, or No. Defaults to not specified.
+                            Specifies whether a public key should be created to represent the resident key. Valid options are not specified, Yes, or No. Defaults to not specified.
                             Either Yes or No
                           type: string
                         signatureAlgorithms:
@@ -565,7 +565,7 @@ spec:
                             option is not adapted. Defaults to 0.
                           type: number
                         relyingPartyEntityName:
-                          description: A human readable server name for the WebAuthn
+                          description: A human-readable server name for the WebAuthn
                             Relying Party. Defaults to keycloak.
                           type: string
                         relyingPartyId:
@@ -573,7 +573,7 @@ spec:
                           type: string
                         requireResidentKey:
                           description: |-
-                            Specifies whether or not a public key should be created to represent the resident key. Valid options are not specified, Yes, or No. Defaults to not specified.
+                            Specifies whether a public key should be created to represent the resident key. Valid options are not specified, Yes, or No. Defaults to not specified.
                             Either Yes or No
                           type: string
                         signatureAlgorithms:
@@ -1042,7 +1042,7 @@ spec:
                             option is not adapted. Defaults to 0.
                           type: number
                         relyingPartyEntityName:
-                          description: A human readable server name for the WebAuthn
+                          description: A human-readable server name for the WebAuthn
                             Relying Party. Defaults to keycloak.
                           type: string
                         relyingPartyId:
@@ -1050,7 +1050,7 @@ spec:
                           type: string
                         requireResidentKey:
                           description: |-
-                            Specifies whether or not a public key should be created to represent the resident key. Valid options are not specified, Yes, or No. Defaults to not specified.
+                            Specifies whether a public key should be created to represent the resident key. Valid options are not specified, Yes, or No. Defaults to not specified.
                             Either Yes or No
                           type: string
                         signatureAlgorithms:
@@ -1100,7 +1100,7 @@ spec:
                             option is not adapted. Defaults to 0.
                           type: number
                         relyingPartyEntityName:
-                          description: A human readable server name for the WebAuthn
+                          description: A human-readable server name for the WebAuthn
                             Relying Party. Defaults to keycloak.
                           type: string
                         relyingPartyId:
@@ -1108,7 +1108,7 @@ spec:
                           type: string
                         requireResidentKey:
                           description: |-
-                            Specifies whether or not a public key should be created to represent the resident key. Valid options are not specified, Yes, or No. Defaults to not specified.
+                            Specifies whether a public key should be created to represent the resident key. Valid options are not specified, Yes, or No. Defaults to not specified.
                             Either Yes or No
                           type: string
                         signatureAlgorithms:
@@ -1724,7 +1724,7 @@ spec:
                             option is not adapted. Defaults to 0.
                           type: number
                         relyingPartyEntityName:
-                          description: A human readable server name for the WebAuthn
+                          description: A human-readable server name for the WebAuthn
                             Relying Party. Defaults to keycloak.
                           type: string
                         relyingPartyId:
@@ -1732,7 +1732,7 @@ spec:
                           type: string
                         requireResidentKey:
                           description: |-
-                            Specifies whether or not a public key should be created to represent the resident key. Valid options are not specified, Yes, or No. Defaults to not specified.
+                            Specifies whether a public key should be created to represent the resident key. Valid options are not specified, Yes, or No. Defaults to not specified.
                             Either Yes or No
                           type: string
                         signatureAlgorithms:
@@ -1782,7 +1782,7 @@ spec:
                             option is not adapted. Defaults to 0.
                           type: number
                         relyingPartyEntityName:
-                          description: A human readable server name for the WebAuthn
+                          description: A human-readable server name for the WebAuthn
                             Relying Party. Defaults to keycloak.
                           type: string
                         relyingPartyId:
@@ -1790,7 +1790,7 @@ spec:
                           type: string
                         requireResidentKey:
                           description: |-
-                            Specifies whether or not a public key should be created to represent the resident key. Valid options are not specified, Yes, or No. Defaults to not specified.
+                            Specifies whether a public key should be created to represent the resident key. Valid options are not specified, Yes, or No. Defaults to not specified.
                             Either Yes or No
                           type: string
                         signatureAlgorithms:

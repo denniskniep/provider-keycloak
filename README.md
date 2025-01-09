@@ -202,6 +202,7 @@ skip that prefix (i.e. '1.0.0')
 2. Use forked repo as go dependency:
 ```
 go mod edit -replace="github.com/keycloak/terraform-provider-keycloak@v0.0.0-20241206084240-f87470c95855=github.com/<owner>/terraform-provider-keycloak@v1.0.0"
+go mod tidy
 ```
 **Hint:** You can also specify the version as `github.com/<owner>/terraform-provider-keycloak@v0.0.0-<timestamp>-<commitHash>`
 

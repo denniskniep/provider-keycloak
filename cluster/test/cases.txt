@@ -1,5 +1,6 @@
 # find ./dev/demos/basic/  -print | grep .yaml | sort
 # Use this as prefix for comments
+# We need to order those test cases, so that they are deleted in order!
 ./dev/demos/basic/080-defaults-groups.yaml
 ./dev/demos/basic/002-realm-clientscopes.yaml
 ./dev/demos/basic/003-realm-required-action.yaml

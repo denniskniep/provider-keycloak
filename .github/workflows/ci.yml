@@ -33,7 +33,6 @@ jobs:
           paths_ignore: '["**.md", "**.png", "**.jpg"]'
           do_not_skip: '["workflow_dispatch", "schedule", "push"]'
 
-
 # lint:
 #     runs-on: ubuntu-24.04
 #     needs: detect-noop

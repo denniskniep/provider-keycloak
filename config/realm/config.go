@@ -71,7 +71,7 @@ func getRealmIDByIdentifyingProperties(ctx context.Context, parameters map[strin
 	if err != nil {
 		return "", err
 	}
-	return found.Id, nil
+	return found.Realm, nil
 }
 
 var keystoreRsaIdentifyingPropertiesLookup = lookup.IdentifyingPropertiesLookupConfig{
@@ -97,4 +97,25 @@ func getKeystoreRsaIDByIdentifyingProperties(ctx context.Context, parameters map
 	name := parameters["name"].(string)
 
 	return lookup.GetComponentId(kcClient, ctx, parameters["realm_id"].(string), &typ, nil, &providerId, &name)
+}
+
+var eventsRealmIdentifyingPropertiesLookup = lookup.IdentifyingPropertiesLookupConfig{
+	RequiredParameters:           []string{"realm_id"},
+	GetIDByExternalName:          getEventsRealmIDByExternalName,
+	GetIDByIdentifyingProperties: getEventsRealmIDByIdentifyingProperties,
+}
+
+// EventsRealmIdentifierFromIdentifyingProperties is used to find the existing resource by it´s identifying properties
+var EventsRealmIdentifierFromIdentifyingProperties = lookup.BuildIdentifyingPropertiesLookup(eventsRealmIdentifyingPropertiesLookup)
+
+func getEventsRealmIDByExternalName(ctx context.Context, _ string, parameters map[string]any, kcClient *keycloak.KeycloakClient) (string, error) {
+	return getEventsRealmIDByIdentifyingProperties(ctx, parameters, kcClient)
+}
+
+func getEventsRealmIDByIdentifyingProperties(ctx context.Context, parameters map[string]any, kcClient *keycloak.KeycloakClient) (string, error) {
+	found, err := kcClient.GetRealm(ctx, parameters["realm_id"].(string))
+	if err != nil {
+		return "", err
+	}
+	return found.Realm, nil
 }
